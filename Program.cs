@@ -1,3 +1,5 @@
+using DataLoaderDemo;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.AddConsole();
 builder.Services

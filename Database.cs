@@ -1,3 +1,5 @@
+namespace DataLoaderDemo;
+
 public class Database
 {
     public Dictionary<int, Book> BooksById = new() {

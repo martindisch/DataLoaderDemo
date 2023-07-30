@@ -1,4 +1,4 @@
-using HotChocolate;
+namespace DataLoaderDemo;
 
 public class Query
 {
