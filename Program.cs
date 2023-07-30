@@ -1,4 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddConsole();
 builder.Services
     .AddSingleton<Database>()
     .AddGraphQLServer()

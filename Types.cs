@@ -10,8 +10,9 @@ public class Query
 
 public record Book(int Id, string Title, [property: GraphQLIgnore] int AuthorId)
 {
-    public Author GetAuthor([Service] Database database)
+    public Author GetAuthor([Service] Database database, [Service] ILogger<Book> logger)
     {
+        logger.LogInformation("Fetching author with ID {AuthorId}", AuthorId);
         return database.AuthorsById[AuthorId];
     }
 }
