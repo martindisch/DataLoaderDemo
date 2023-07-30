@@ -17,13 +17,4 @@ public class Database
         { 2, new(2, "Second Author") },
         { 3, new(3, "Third Author") },
     };
-
-    [DataLoader]
-    public async Task<IReadOnlyDictionary<int, Author>> GetAuthorsByIdAsync(IReadOnlyList<int> authorIds)
-    {
-        await Task.CompletedTask;
-        return AuthorsById
-            .Where(kvp => authorIds.Contains(kvp.Key))
-            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-    }
 }
