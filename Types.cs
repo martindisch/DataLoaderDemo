@@ -16,4 +16,10 @@ public record Book(int Id, string Title, [property: GraphQLIgnore] int AuthorId)
     }
 }
 
-public record Author(int Id, string Name);
+public record Author(int Id, string Name)
+{
+    public async Task<IEnumerable<Book>> GetBooksAsync([Service] IBooksByAuthorIdDataLoader dataLoader)
+    {
+        return await dataLoader.LoadAsync(Id);
+    }
+}
