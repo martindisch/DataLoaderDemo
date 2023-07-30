@@ -10,10 +10,9 @@ public class Query
 
 public record Book(int Id, string Title, [property: GraphQLIgnore] int AuthorId)
 {
-    public Author GetAuthor([Service] Database database, [Service] ILogger<Book> logger)
+    public async Task<Author> GetAuthorAsync([Service] IAuthorsByIdDataLoader dataLoader)
     {
-        logger.LogInformation("Fetching author with ID {AuthorId}", AuthorId);
-        return database.AuthorsById[AuthorId];
+        return await dataLoader.LoadAsync(AuthorId);
     }
 }
 
