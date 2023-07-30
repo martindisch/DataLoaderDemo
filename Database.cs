@@ -1,6 +1,6 @@
 public class Database
 {
-    public Dictionary<int, BookModel> BooksById = new() {
+    public Dictionary<int, Book> BooksById = new() {
         { 1, new(1, "First Book", 1) },
         { 2, new(2, "Second Book", 2) },
         { 3, new(3, "Third Book", 1) },
@@ -10,13 +10,9 @@ public class Database
         { 7, new(7, "Seventh Book", 1) },
     };
 
-    public Dictionary<int, AuthorModel> AuthorsById = new() {
+    public Dictionary<int, Author> AuthorsById = new() {
         { 1, new(1, "First Author") },
         { 2, new(2, "Second Author") },
         { 3, new(3, "Third Author") },
     };
 }
-
-public record BookModel(int Id, string Title, int authorId);
-
-public record AuthorModel(int Id, string Name);
