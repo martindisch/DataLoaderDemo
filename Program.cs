@@ -3,7 +3,7 @@ builder.Logging.AddConsole();
 builder.Services
     .AddSingleton<Database>()
     .AddGraphQLServer()
-    .AddQueryType<Query>();
+    .AddTypes(typeof(Query));
 
 var app = builder.Build();
 app.MapGraphQL();
