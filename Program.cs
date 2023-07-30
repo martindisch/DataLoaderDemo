@@ -1,6 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+builder.Services
+    .AddSingleton<Database>()
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
 
-app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
+app.MapGraphQL();
 
 app.Run();
